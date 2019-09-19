@@ -1,5 +1,18 @@
-/* body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-} */
+/* Mapbox map styles */
+.map-container {
+  height: 50vh;
+  width: 100%;
+  background: whitesmoke;
+  position: relative;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.mapboxgl-canvas {
+  left: 0;
+}

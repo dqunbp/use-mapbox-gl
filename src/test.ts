@@ -1,7 +1,7 @@
-import { useMyHook } from './'
+import useMapboxGl from "./";
 
-describe('useMyHook', () => {
-  it('is truthy', () => {
-    expect(useMyHook).toBeTruthy()
-  })
-})
+describe("useMapboxGl", () => {
+  it("is truthy", () => {
+    expect(useMapboxGl).toBeTruthy();
+  });
+});
