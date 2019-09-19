@@ -2,7 +2,7 @@
 
 > mapbox-gl react hook
 
-[![NPM](https://img.shields.io/npm/v/mapbox-gl-react-hook.svg)](https://www.npmjs.com/package/use-mapbox-gl) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/use-mapbox-gl.svg)](https://www.npmjs.com/package/use-mapbox-gl) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
@@ -14,7 +14,6 @@ npm install --save use-mapbox-gl
 
 ```tsx
 import * as React from "react";
-
 import useMapboxGl from "use-mapbox-gl";
 
 const Example = () => {
