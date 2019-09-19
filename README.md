@@ -59,8 +59,6 @@ Supported `viewport` shape:
 }
 ```
 
-```
-
 ## License
 
 MIT © [dqunbp](https://github.com/dqunbp)
