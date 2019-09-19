@@ -1,13 +1,13 @@
-# mapbox-gl-react-hook
+# use-mapbox-gl
 
-> mapbox-gl react hook wrapper
+> mapbox-gl react hook
 
-[![NPM](https://img.shields.io/npm/v/mapbox-gl-react-hook.svg)](https://www.npmjs.com/package/mapbox-gl-react-hook) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/mapbox-gl-react-hook.svg)](https://www.npmjs.com/package/use-mapbox-gl) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save mapbox-gl-react-hook
+npm install --save use-mapbox-gl
 ```
 
 ## Usage
