@@ -66,4 +66,3 @@ MIT © [dqunbp](https://github.com/dqunbp)
 ---
 
 This hook is created using [create-react-hook](https://github.com/hermanya/create-react-hook).
-```
