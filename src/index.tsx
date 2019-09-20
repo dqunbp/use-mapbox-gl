@@ -9,6 +9,11 @@ export interface Viewport {
   pitch: number;
 }
 
+enum ViewportUpdatingMode {
+  moveend = "moveend",
+  move = "move"
+}
+
 export interface MapEventTarget {
   target: mapboxgl.Map;
 }
@@ -20,6 +25,7 @@ export interface MapboxGlHookOptions {
   onViewportChanged?: (viewport: Viewport) => void;
   onLoaded?: (map: mapboxgl.Map) => void;
   mapboxAccessToken?: string;
+  viewportUpdatingMode?: ViewportUpdatingMode;
 }
 
 export interface ChangeViewportOptions {
@@ -111,10 +117,12 @@ export default function useMapboxGl({
   style,
   onViewportChanged,
   onLoaded,
-  mapboxAccessToken
+  mapboxAccessToken,
+  viewportUpdatingMode = ViewportUpdatingMode.moveend
 }: MapboxGlHookOptions): {
   mapRef: React.RefObject<mapboxgl.Map>;
   setViewport: (viewport: Viewport, options: ChangeViewportOptions) => void;
+  getMap: () => mapboxgl.Map | null;
 } {
   const mapRef = React.useRef<null | mapboxgl.Map>(null);
 
@@ -135,7 +143,7 @@ export default function useMapboxGl({
         viewportChanged({ target: map });
         if (onLoaded) onLoaded(map);
       };
-      mapRef.current.on("moveend", viewportChanged);
+      mapRef.current.on(viewportUpdatingMode, viewportChanged);
       mapRef.current.on("load", handleMapLoad);
 
       return () => {
@@ -147,6 +155,11 @@ export default function useMapboxGl({
   React.useEffect(() => {
     if (mapRef.current) if (style) mapRef.current.setStyle(style);
   }, [mapRef, style]);
+
+  const getMap = React.useCallback((): mapboxgl.Map | null => {
+    if (mapRef.current) return mapRef.current;
+    else return null;
+  }, [mapRef]);
 
   const setViewport = React.useCallback(
     (viewport: Viewport, options?: ChangeViewportOptions): void => {
@@ -161,5 +174,5 @@ export default function useMapboxGl({
     },
     [mapRef]
   );
-  return { mapRef, setViewport };
+  return { mapRef, setViewport, getMap };
 }

@@ -31,7 +31,7 @@ const Example = () => {
 
 See extended case in the example.
 
-## Api
+## API
 
 Options:
 
@@ -40,11 +40,15 @@ Options:
 - **style** - mapbox-gl map style
 - **onViewportChanged** - called when `viewport` updated
 - **onLoaded** - called when map `load` event fired
+- **viewportUpdatingMode** - `mapbox-gl` [event](https://docs.mapbox.com/mapbox-gl-js/api/#events) to viewport updating
+  - accepted values:
+    - `move` - update on each `viewport` change tick
+    - `moveend` - update `viewport` when the map is stopped moving
 
 Returns object with shape:
 
-- **mapRef**
-- **setViewport**
+- **getMap** - returns map instance
+- **setViewport** - returns `viewport`
 
 Supported `viewport` shape:
 

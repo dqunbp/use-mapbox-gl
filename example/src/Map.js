@@ -11,15 +11,16 @@ const INITIAL_VIEWPORT = {
   pitch: 0
 };
 
-const App = () => {
+const Map = () => {
   const [style, setStyle] = React.useState("OSM");
   const mapDivRef = React.useRef();
-  const { setViewport } = useMapboxGl({
+  const { getMap, setViewport } = useMapboxGl({
     mapNodeRef: mapDivRef,
     initialViewport: INITIAL_VIEWPORT,
     style: STYLES[style],
     onViewportChanged: v => console.log("viewport changed", v),
-    onLoaded: () => console.log("map loaded")
+    onLoaded: () => console.log("map zoom", getMap().getZoom()),
+    viewportUpdatingMode: "move"
   });
   return (
     <React.Fragment>
@@ -51,4 +52,4 @@ const App = () => {
     </React.Fragment>
   );
 };
-export default App;
+export default Map;
