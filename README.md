@@ -35,16 +35,16 @@ See extended case in the example.
 
 Options:
 
-- mapNodeRef: mapbox-gl map container ref
-- initialViewport: initial map `viewport`
-- style: mapbox-gl map style
-- onViewportChanged: calls when `viewport` updated
-- onLoaded: calls when map `load` event fired
+- **mapNodeRef** - mapbox-gl map container ref
+- **initialViewport** - initial map `viewport`
+- **style** - mapbox-gl map style
+- **onViewportChanged** - calls when `viewport` updated
+- **onLoaded** - calls when map `load` event fired
 
 Returns object with shape:
 
-- mapRef
-- setViewport
+- **mapRef**
+- **setViewport**
 
 Supported `viewport` shape:
 
