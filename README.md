@@ -38,8 +38,8 @@ Options:
 - **mapNodeRef** - mapbox-gl map container ref
 - **initialViewport** - initial map `viewport`
 - **style** - mapbox-gl map style
-- **onViewportChanged** - calls when `viewport` updated
-- **onLoaded** - calls when map `load` event fired
+- **onViewportChanged** - called when `viewport` updated
+- **onLoaded** - called when map `load` event fired
 
 Returns object with shape:
 
@@ -57,6 +57,8 @@ Supported `viewport` shape:
   pitch;
 }
 ```
+
+> `onViewportChanged` callback invokes on `moveend` mapbox-gl event
 
 ## License
 
