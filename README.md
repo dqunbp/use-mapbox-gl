@@ -37,7 +37,7 @@ Options:
 
 - **mapNodeRef** - mapbox-gl map container ref
 - **initialViewport** - initial map `viewport`
-- **style** - mapbox-gl [style](https://docs.mapbox.com/mapbox-gl-js/style-spec/)
+- **style** - mapbox-gl map [style](https://docs.mapbox.com/mapbox-gl-js/style-spec/)
 - **onViewportChanged** - called when `viewport` updated
 - **onLoaded** - called when map `load` event fired
 - **viewportUpdatingMode** - `mapbox-gl` [event](https://docs.mapbox.com/mapbox-gl-js/api/#events) to viewport updating
@@ -47,8 +47,8 @@ Options:
 
 Returns object with shape:
 
-- **getMap** - returns map instance
-- **setViewport** - returns `viewport`
+- **getMap** - returns the map instance
+- **setViewport** - sets the map `viewport`
 
 Supported `viewport` shape:
 
@@ -61,8 +61,6 @@ Supported `viewport` shape:
   pitch;
 }
 ```
-
-> `onViewportChanged` callback invokes on `moveend` mapbox-gl event
 
 ## License
 
