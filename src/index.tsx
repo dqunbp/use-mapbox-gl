@@ -1,7 +1,7 @@
 import * as React from "react";
 import mapboxgl from "mapbox-gl";
 
-export interface Viewport {
+export interface IViewport {
   latitude: number;
   longitude: number;
   zoom: number;
@@ -9,32 +9,32 @@ export interface Viewport {
   pitch: number;
 }
 
-enum ViewportUpdatingMode {
+export enum ViewportUpdatingMode {
   moveend = "moveend",
   move = "move"
 }
 
-export interface MapEventTarget {
+export interface IMapEventTarget {
   target: mapboxgl.Map;
 }
 
-export interface MapboxGlHookOptions {
+export interface IMapboxGlHookOptions {
   mapNodeRef: React.RefObject<HTMLDivElement>;
-  initialViewport: Viewport;
+  initialViewport: IViewport;
   style: mapboxgl.Style;
-  onViewportChanged?: (viewport: Viewport) => void;
+  onViewportChanged?: (viewport: IViewport) => void;
   onLoaded?: (map: mapboxgl.Map) => void;
   mapboxAccessToken?: string;
   viewportUpdatingMode?: ViewportUpdatingMode;
 }
 
-export interface ChangeViewportOptions {
+export interface IChangeViewportOptions {
   speed?: number;
   curve?: number;
   easing?: (t: number) => number;
 }
 
-interface MapOptions {
+interface IMapOptions {
   container: HTMLDivElement;
   center: [number, number];
   zoom: number;
@@ -47,7 +47,7 @@ function buildCenter(longitude: number, latitude: number) {
   return new mapboxgl.LngLat(latitude, longitude);
 }
 
-export function getMapViewport(map: mapboxgl.Map): Viewport {
+export function getMapViewport(map: mapboxgl.Map): IViewport {
   const [latitude, longitude] = map.getCenter().toArray();
   const zoom = map.getZoom();
   const bearing = map.getBearing();
@@ -62,8 +62,8 @@ enum MoveFunctions {
 }
 
 function getMoveParams(
-  options?: ChangeViewportOptions
-): [MoveFunctions, ChangeViewportOptions] {
+  options?: IChangeViewportOptions
+): [MoveFunctions, IChangeViewportOptions] {
   let moveFn = MoveFunctions.jumpTo;
   let moveOptions = {};
   if (options) {
@@ -81,8 +81,8 @@ function getMoveParams(
 
 function setMapViewport(
   map: mapboxgl.Map,
-  viewport: Viewport,
-  options?: ChangeViewportOptions
+  viewport: IViewport,
+  options?: IChangeViewportOptions
 ): void {
   const center = buildCenter(viewport.longitude, viewport.latitude);
   const [moveFn, moveOptions] = getMoveParams(options);
@@ -95,9 +95,9 @@ function setMapViewport(
 
 function getMapOptions(
   container: HTMLDivElement,
-  viewport: Viewport,
+  viewport: IViewport,
   token?: string
-): MapOptions {
+): IMapOptions {
   let center: [number, number];
   center = [viewport.latitude, viewport.longitude];
   const mapOptions = {
@@ -111,6 +111,17 @@ function getMapOptions(
   return mapOptions;
 }
 
+function getViewportUpdatingMode(
+  modeName: ViewportUpdatingMode
+): ViewportUpdatingMode {
+  const mode = ViewportUpdatingMode[modeName];
+  if (!mode)
+    throw new Error(
+      "Bad value, viewport updating mode shoud be one of [move, moveend]"
+    );
+  return mode;
+}
+
 export default function useMapboxGl({
   mapNodeRef,
   initialViewport,
@@ -119,9 +130,9 @@ export default function useMapboxGl({
   onLoaded,
   mapboxAccessToken,
   viewportUpdatingMode = ViewportUpdatingMode.moveend
-}: MapboxGlHookOptions): {
+}: IMapboxGlHookOptions): {
   mapRef: React.RefObject<mapboxgl.Map>;
-  setViewport: (viewport: Viewport, options: ChangeViewportOptions) => void;
+  setViewport: (viewport: IViewport, options: IChangeViewportOptions) => void;
   getMap: () => mapboxgl.Map | null;
 } {
   const mapRef = React.useRef<null | mapboxgl.Map>(null);
@@ -135,15 +146,18 @@ export default function useMapboxGl({
       );
       mapRef.current = new mapboxgl.Map(mapOptions);
 
-      const viewportChanged = ({ target: map }: MapEventTarget): void => {
+      const viewportChanged = ({ target: map }: IMapEventTarget): void => {
         const viewport = getMapViewport(map);
         onViewportChanged && onViewportChanged(viewport);
       };
-      const handleMapLoad = ({ target: map }: MapEventTarget): void => {
+      const handleMapLoad = ({ target: map }: mapboxgl.MapboxEvent): void => {
         viewportChanged({ target: map });
         if (onLoaded) onLoaded(map);
       };
-      mapRef.current.on(viewportUpdatingMode, viewportChanged);
+      mapRef.current.on(
+        getViewportUpdatingMode(viewportUpdatingMode),
+        viewportChanged
+      );
       mapRef.current.on("load", handleMapLoad);
 
       return () => {
@@ -162,7 +176,7 @@ export default function useMapboxGl({
   }, [mapRef]);
 
   const setViewport = React.useCallback(
-    (viewport: Viewport, options?: ChangeViewportOptions): void => {
+    (viewport: IViewport, options?: IChangeViewportOptions): void => {
       if (mapRef.current) {
         const currentViewport = getMapViewport(mapRef.current);
         setMapViewport(

@@ -37,7 +37,7 @@ Options:
 
 - **mapNodeRef** - mapbox-gl map container ref
 - **initialViewport** - initial map `viewport`
-- **style** - mapbox-gl map style
+- **style** - mapbox-gl [style](https://docs.mapbox.com/mapbox-gl-js/style-spec/)
 - **onViewportChanged** - called when `viewport` updated
 - **onLoaded** - called when map `load` event fired
 - **viewportUpdatingMode** - `mapbox-gl` [event](https://docs.mapbox.com/mapbox-gl-js/api/#events) to viewport updating

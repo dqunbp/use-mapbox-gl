@@ -20,7 +20,7 @@ const Map = () => {
     style: STYLES[style],
     onViewportChanged: v => console.log("viewport changed", v),
     onLoaded: () => console.log("map zoom", getMap().getZoom()),
-    viewportUpdatingMode: "move"
+    viewportUpdatingMode: "moveend"
   });
   return (
     <React.Fragment>
