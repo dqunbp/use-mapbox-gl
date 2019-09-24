@@ -10,6 +10,21 @@
 npm install --save use-mapbox-gl
 ```
 
+> Don't forget install `mapbox-gl`
+
+```bash
+npm install --save mapbox-gl
+```
+
+> You may also need to use `mapbox-gl` styles
+
+```html
+<link
+  href="https://api.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css"
+  rel="stylesheet"
+/>
+```
+
 ## Usage
 
 ```tsx
@@ -49,6 +64,25 @@ Returns object with shape:
 
 - **getMap** - returns the map instance
 - **setViewport** - sets the map `viewport`
+  - args
+    - Viewport [mapbox description](https://docs.mapbox.com/mapbox-gl-js/api/#cameraoptions)
+      - `latitude` (optional)
+      - `longitude` (optional)
+      - `zoom` (optional)
+      - `bearing` (optional)
+      - `pitch` (optional)
+    - Options [mapbox description](https://docs.mapbox.com/mapbox-gl-js/api/#animationoptions)
+      - `speed` (optional)
+      - `curve` (optional)
+      - `easing` (optional)
+
+> `setViewport` calls one of mapbox-gl methods, depends on options
+
+| Will called \ Passed options | `speed` | `easing` | `curve` |
+| :--------------------------: | ------- | -------- | ------- |
+|           `flyTo`            | +       | +        | +       |
+|           `easeTo`           | +       | +        | -       |
+|           `jumpTo`           | -       | -        | -       |
 
 Supported `viewport` shape:
 

@@ -87,9 +87,9 @@ function setMapViewport(
   const center = buildCenter(viewport.longitude, viewport.latitude);
   const [moveFn, moveOptions] = getMoveParams(options);
   map[moveFn]({
-    center,
-    zoom: viewport.zoom,
-    ...moveOptions
+    ...moveOptions,
+    ...viewport,
+    center
   });
 }
 
