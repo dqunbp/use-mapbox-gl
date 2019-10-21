@@ -2,7 +2,7 @@
 
 > mapbox-gl react hook
 
-[![NPM](https://img.shields.io/npm/v/use-mapbox-gl.svg)](https://www.npmjs.com/package/use-mapbox-gl) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/use-mapbox-gl.svg)](https://www.npmjs.com/package/use-mapbox-gl) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 ## Install
 
@@ -44,7 +44,7 @@ const Example = () => {
 };
 ```
 
-See extended case in the example.
+See extended case in the [example](https://github.com/dqunbp/use-mapbox-gl/tree/master/example).
 
 ## API
 
