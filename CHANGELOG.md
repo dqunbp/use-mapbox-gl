@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.4](https://github.com/dqunbp/use-mapbox-gl/compare/v1.2.3...v1.2.4) (2019-10-21)
+
+
+### Bug Fixes
+
+* **deps:** fix lock files deps ([e1143cf](https://github.com/dqunbp/use-mapbox-gl/commit/e1143cf7e96f099181e3b8d8418561fac537f13a))
+
 ### 1.2.3 (2019-10-21)
 
 
