@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.7](https://github.com/dqunbp/use-mapbox-gl/compare/v1.2.6...v1.2.7) (2019-10-25)
+
+
+### Bug Fixes
+
+* add keywords to package.json ([218a773](https://github.com/dqunbp/use-mapbox-gl/commit/218a773d9e7a4d32f1a0df1c9e9d2abaf47f3242))
+
 ### [1.2.6](https://github.com/dqunbp/use-mapbox-gl/compare/v1.2.5...v1.2.6) (2019-10-25)
 
 ### [1.2.5](https://github.com/dqunbp/use-mapbox-gl/compare/v1.2.4...v1.2.5) (2019-10-22)
