@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/dqunbp/use-mapbox-gl/compare/v1.2.8...v1.3.0) (2019-11-27)
+
+
+### Features
+
+* add dependabot config ([8e4ed4f](https://github.com/dqunbp/use-mapbox-gl/commit/8e4ed4f7d9dc9c5505b0e60b026b02221751ccf0))
+
+
+### Bug Fixes
+
+* **deps-dev:** bump rollup-plugin-typescript2 from 0.24.3 to 0.25.2 ([#28](https://github.com/dqunbp/use-mapbox-gl/issues/28)) ([93fc5f4](https://github.com/dqunbp/use-mapbox-gl/commit/93fc5f483982bdb27c6f11c546a5cb380fc2d364))
+* **deps-dev:** update dependencies ([26b9e5e](https://github.com/dqunbp/use-mapbox-gl/commit/26b9e5e4cef82d7cbbf584533f423d4497654c10))
+
 ### [1.2.8](https://github.com/dqunbp/use-mapbox-gl/compare/v1.2.7...v1.2.8) (2019-11-12)
 
 ### [1.2.7](https://github.com/dqunbp/use-mapbox-gl/compare/v1.2.6...v1.2.7) (2019-10-25)
