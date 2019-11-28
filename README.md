@@ -34,9 +34,14 @@ import useMapboxGl from "use-mapbox-gl";
 const Example = () => {
   const mapDivRef = React.useRef();
   useMapboxGl({
+    mapboxAccessToken: "your_access_token",
     mapNodeRef: mapDivRef,
-    initialViewport: viewport,
-    style: mapStyle,
+    initialViewport: {
+      latitude: 44.634507629603483,
+      longitude: 48.818963526964204,
+      zoom: 10
+    },
+    style: "mapbox://styles/mapbox/streets-v11",
     onViewportChanged: v => console.log("viewport changed", v),
     onLoaded: () => console.log("map loaded")
   });
@@ -50,6 +55,7 @@ See extended case in the [example](https://github.com/dqunbp/use-mapbox-gl/tree/
 
 Options:
 
+- **mapboxAccessToken** - mapbox-gl access token
 - **mapNodeRef** - mapbox-gl map container ref
 - **initialViewport** - initial map `viewport`
 - **style** - mapbox-gl map [style](https://docs.mapbox.com/mapbox-gl-js/style-spec/)
