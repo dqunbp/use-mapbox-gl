@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/dqunbp/use-mapbox-gl/compare/v1.3.0...v1.4.0) (2019-11-28)
+
+
+### Features
+
+* upgrade ViewportUpdatingMode ([d57073b](https://github.com/dqunbp/use-mapbox-gl/commit/d57073b850a4925786307c8b8f6d172552c84e73))
+
+
+### Bug Fixes
+
+* update demo ([93ef868](https://github.com/dqunbp/use-mapbox-gl/commit/93ef868ef886ba33cefb3d23733468b1d97e3fac))
+
 ## [1.3.0](https://github.com/dqunbp/use-mapbox-gl/compare/v1.2.8...v1.3.0) (2019-11-27)
 
 
