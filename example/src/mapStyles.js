@@ -1,3 +1,4 @@
+// Custom base styles for using without token
 export const STYLES = {
   OSM: {
     version: 8,

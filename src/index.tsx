@@ -10,8 +10,8 @@ export interface IViewport {
 }
 
 export enum ViewportUpdatingMode {
-  moveend = "moveend",
-  move = "move"
+  MOVEEND = "moveend",
+  MOVE = "move"
 }
 
 export interface IMapEventTarget {
@@ -111,25 +111,23 @@ function getMapOptions(
   return mapOptions;
 }
 
-function getViewportUpdatingMode(
-  modeName: ViewportUpdatingMode
-): ViewportUpdatingMode {
-  const mode = ViewportUpdatingMode[modeName];
-  if (!mode)
+function checkUpdatingMode<T extends ViewportUpdatingMode>(modeName: T): T {
+  const isCorrect = Object.values(ViewportUpdatingMode).includes(modeName);
+  if (!isCorrect)
     throw new Error(
       "Bad value, viewport updating mode shoud be one of [move, moveend]"
     );
-  return mode;
+  return modeName;
 }
 
 export default function useMapboxGl({
   mapNodeRef,
-  initialViewport,
   style,
+  initialViewport,
   onViewportChanged,
   onLoaded,
   mapboxAccessToken,
-  viewportUpdatingMode = ViewportUpdatingMode.moveend
+  viewportUpdatingMode = ViewportUpdatingMode.MOVEEND
 }: IMapboxGlHookOptions): {
   mapRef: React.RefObject<mapboxgl.Map>;
   setViewport: (viewport: IViewport, options: IChangeViewportOptions) => void;
@@ -137,7 +135,15 @@ export default function useMapboxGl({
 } {
   const mapRef = React.useRef<null | mapboxgl.Map>(null);
 
-  React.useEffect((): (() => void) | void => {
+  const viewportChanged = React.useCallback(
+    ({ target: map }: IMapEventTarget): void => {
+      const viewport = getMapViewport(map);
+      onViewportChanged && onViewportChanged(viewport);
+    },
+    []
+  );
+
+  React.useEffect(() => {
     if (mapNodeRef.current) {
       const mapOptions = getMapOptions(
         mapNodeRef.current,
@@ -146,29 +152,32 @@ export default function useMapboxGl({
       );
       mapRef.current = new mapboxgl.Map(mapOptions);
 
-      const viewportChanged = ({ target: map }: IMapEventTarget): void => {
-        const viewport = getMapViewport(map);
-        onViewportChanged && onViewportChanged(viewport);
-      };
       const handleMapLoad = ({ target: map }: mapboxgl.MapboxEvent): void => {
         viewportChanged({ target: map });
         if (onLoaded) onLoaded(map);
       };
-      mapRef.current.on(
-        getViewportUpdatingMode(viewportUpdatingMode),
-        viewportChanged
-      );
       mapRef.current.on("load", handleMapLoad);
-
-      return () => {
-        if (mapRef.current) mapRef.current.remove();
-      };
     }
+    return () => {
+      if (mapRef.current) mapRef.current.remove();
+    };
   }, [mapNodeRef]);
 
   React.useEffect(() => {
     if (mapRef.current) if (style) mapRef.current.setStyle(style);
   }, [mapRef, style]);
+
+  React.useEffect(() => {
+    if (mapRef.current)
+      mapRef.current.on(
+        checkUpdatingMode(viewportUpdatingMode),
+        viewportChanged
+      );
+    return () => {
+      if (mapRef.current)
+        mapRef.current.off(viewportUpdatingMode, viewportChanged);
+    };
+  }, [mapRef, viewportUpdatingMode]);
 
   const getMap = React.useCallback((): mapboxgl.Map | null => {
     if (mapRef.current) return mapRef.current;
