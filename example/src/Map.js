@@ -6,9 +6,7 @@ import { STYLES } from "./mapStyles";
 const INITIAL_VIEWPORT = {
   latitude: 44.634507629603483,
   longitude: 48.818963526964204,
-  zoom: 10,
-  bearing: -0,
-  pitch: 0
+  zoom: 10
 };
 
 const Map = () => {

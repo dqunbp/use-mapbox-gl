@@ -98,15 +98,16 @@ function getMapOptions(
   viewport: IViewport,
   token?: string
 ): IMapOptions {
+  const {
+    latitude = 0,
+    longitude = 0,
+    zoom = 0,
+    bearing = -0,
+    pitch = 0
+  } = viewport;
   let center: [number, number];
-  center = [viewport.latitude, viewport.longitude];
-  const mapOptions = {
-    container,
-    center,
-    zoom: viewport.zoom,
-    bearing: viewport.bearing,
-    pitch: viewport.pitch
-  };
+  center = [latitude, longitude];
+  const mapOptions = { container, center, zoom, bearing, pitch };
   if (token) mapOptions["accessToken"] = token;
   return mapOptions;
 }
@@ -120,13 +121,21 @@ function checkUpdatingMode<T extends ViewportUpdatingMode>(modeName: T): T {
   return modeName;
 }
 
+const defaultViewport = {
+  latitude: 0,
+  longitude: 0,
+  zoom: 0,
+  bearing: -0,
+  pitch: 0
+};
+
 export default function useMapboxGl({
   mapNodeRef,
   style,
-  initialViewport,
   onViewportChanged,
   onLoaded,
   mapboxAccessToken,
+  initialViewport = defaultViewport,
   viewportUpdatingMode = ViewportUpdatingMode.MOVEEND
 }: IMapboxGlHookOptions): {
   mapRef: React.RefObject<mapboxgl.Map>;
