@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1e5dd5aea1a5749507db8b9ea6dd4599",
+    "revision": "bb61a7e696b9616fc40857fdce1e8cbd",
     "url": "/use-mapbox-gl/index.html"
   },
   {
-    "revision": "253c4de116f4f0083993",
+    "revision": "56f875913db1b4f34ea6",
     "url": "/use-mapbox-gl/static/css/main.5fe427ba.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/use-mapbox-gl/static/js/2.222101b8.chunk.js"
   },
   {
-    "revision": "253c4de116f4f0083993",
-    "url": "/use-mapbox-gl/static/js/main.2c680fc3.chunk.js"
+    "revision": "56f875913db1b4f34ea6",
+    "url": "/use-mapbox-gl/static/js/main.27d769bc.chunk.js"
   },
   {
     "revision": "57994f0dc08c592f414a",
