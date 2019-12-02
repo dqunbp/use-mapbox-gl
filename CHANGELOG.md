@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.3](https://github.com/dqunbp/use-mapbox-gl/compare/v1.4.2...v1.4.3) (2019-12-02)
+
+
+### Bug Fixes
+
+* update example ([ffb76bb](https://github.com/dqunbp/use-mapbox-gl/commit/ffb76bba1ca8ab0bafea070c81e7aba05be4b35e))
+* **deps-dev:** bump rollup from 1.27.5 to 1.27.8 ([#44](https://github.com/dqunbp/use-mapbox-gl/issues/44)) ([804d70f](https://github.com/dqunbp/use-mapbox-gl/commit/804d70f3e4e7ef72d1907a69e35bb489f06bbf90))
+
 ### [1.4.2](https://github.com/dqunbp/use-mapbox-gl/compare/v1.4.1...v1.4.2) (2019-11-29)
 
 
