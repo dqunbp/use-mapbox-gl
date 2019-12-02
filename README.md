@@ -16,11 +16,11 @@ npm install --save use-mapbox-gl
 npm install --save mapbox-gl
 ```
 
-> You may also need to use `mapbox-gl` styles
+> You also need to use `mapbox-gl` styles
 
 ```html
 <link
-  href="https://api.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css"
+  href="https://api.mapbox.com/mapbox-gl-js/v1.5.1/mapbox-gl.css"
   rel="stylesheet"
 />
 ```
@@ -28,10 +28,10 @@ npm install --save mapbox-gl
 ## Usage
 
 ```tsx
-import * as React from "react";
+import React from "react";
 import useMapboxGl from "use-mapbox-gl";
 
-const Example = () => {
+const ExampleMap = () => {
   const mapDivRef = React.useRef();
   useMapboxGl({
     mapboxAccessToken: "your_access_token",
@@ -45,7 +45,18 @@ const Example = () => {
     onViewportChanged: v => console.log("viewport changed", v),
     onLoaded: () => console.log("map loaded")
   });
-  return <div ref={mapDivRef}>{example}</div>;
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: 0,
+        bottom: 0,
+        width: "100vh",
+        height: "100vw"
+      }}
+      ref={mapDivRef}
+    />
+  );
 };
 ```
 
