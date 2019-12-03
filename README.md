@@ -7,13 +7,7 @@
 ## Install
 
 ```bash
-npm install --save use-mapbox-gl
-```
-
-> Don't forget install `mapbox-gl`
-
-```bash
-npm install --save mapbox-gl
+npm install --save use-mapbox-gl mapbox-gl
 ```
 
 > You also need to use `mapbox-gl` styles
@@ -26,6 +20,8 @@ npm install --save mapbox-gl
 ```
 
 ## Usage
+
+### With token
 
 ```tsx
 import React from "react";
@@ -51,12 +47,36 @@ const ExampleMap = () => {
         position: "absolute",
         top: 0,
         bottom: 0,
-        width: "100vh",
-        height: "100vw"
+        width: "100vw",
+        height: "100vh"
       }}
       ref={mapDivRef}
     />
   );
+};
+```
+
+### Without token
+
+For using without token, you need to define custom base map style, as example:
+
+```js
+const style = {
+  version: 8,
+  sources: {
+    osm: {
+      type: "raster",
+      tiles: ["https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"],
+      tileSize: 256
+    }
+  },
+  layers: [
+    {
+      id: "osm",
+      source: "osm",
+      type: "raster"
+    }
+  ]
 };
 ```
 
