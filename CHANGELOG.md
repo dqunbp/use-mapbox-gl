@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.6](https://github.com/dqunbp/use-mapbox-gl/compare/v1.4.5...v1.4.6) (2019-12-06)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @types/react from 16.9.13 to 16.9.15 ([#47](https://github.com/dqunbp/use-mapbox-gl/issues/47)) ([df12259](https://github.com/dqunbp/use-mapbox-gl/commit/df12259da52aea71e98e9106127a8ea575e1a8d3))
+* **deps-dev:** bump react-scripts from 3.2.0 to 3.3.0 ([#48](https://github.com/dqunbp/use-mapbox-gl/issues/48)) ([1c7b41f](https://github.com/dqunbp/use-mapbox-gl/commit/1c7b41f6b74708cc151a1cec03e90465f484caad))
+* **deps-dev:** bump rollup-plugin-typescript2 from 0.25.2 to 0.25.3 ([#46](https://github.com/dqunbp/use-mapbox-gl/issues/46)) ([9028a4c](https://github.com/dqunbp/use-mapbox-gl/commit/9028a4cad0b7ed231494e1c239a7cd607814d0f8))
+* **deps-dev:** bump typescript from 3.7.2 to 3.7.3 ([#49](https://github.com/dqunbp/use-mapbox-gl/issues/49)) ([1084045](https://github.com/dqunbp/use-mapbox-gl/commit/108404570677e54a4ee0612ace62fbae65ca9666))
+* **deps-dev:** update dependencies ([2533c5c](https://github.com/dqunbp/use-mapbox-gl/commit/2533c5ce33ad56f01a5bc7c4adb44717c39602ea))
+
 ### [1.4.5](https://github.com/dqunbp/use-mapbox-gl/compare/v1.4.4...v1.4.5) (2019-12-03)
 
 
