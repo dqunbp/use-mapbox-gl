@@ -5,10 +5,10 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "mapbox-gl": "^1.5.1",
-    "react": "^16.10.2",
+    "mapbox-gl": "^1.6.0",
+    "react": "file:../node_modules/react",
     "react-dom": "^16.10.2",
-    "react-scripts": "^3.2.0",
+    "react-scripts": "^3.3.0",
     "use-mapbox-gl": "file:.."
   },
   "scripts": {
