@@ -47,7 +47,7 @@
     "@types/jest": "^24.0.23",
     "@types/mapbox-gl": "^1.6.0",
     "@types/react": "^16.9.15",
-    "cross-env": "^6.0.3",
+    "cross-env": "^7.0.0",
     "gh-pages": "^2.0.1",
     "react": "^16.12.0",
     "react-scripts": "^3.3.0",
