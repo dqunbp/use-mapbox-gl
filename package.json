@@ -1,6 +1,6 @@
 {
   "name": "use-mapbox-gl",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "mapbox-gl react hook",
   "author": "dqunbp",
   "license": "MIT",
@@ -18,7 +18,9 @@
     "release:minor": "npm run release -- --release-as minor",
     "release:major": "npm run release -- --release-as major"
   },
-  "files":["dist/**/*"],
+  "files": [
+    "dist/**/*"
+  ],
   "keywords": [
     "react",
     "mapbox",
