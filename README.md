@@ -120,7 +120,7 @@ export default WithoutTokenMap
 
 #### 🔗 useMapboxGl
 
-- **container** - The HTML element in which Mapbox GL JS will render the map
+- **container** - The HTML element `React` `ref` in which Mapbox GL JS will render the map
 - **options** *(optional)* - object with native [mapbox-gl](https://docs.mapbox.com/mapbox-gl-js/api/map/#map-parameters) parameters, without container prop
 - **setMapApi** *(optional)* - map load callback, called when [mapbox-gl load event](https://docs.mapbox.com/mapbox-gl-js/api/map/#map.event:load) is fired
 
