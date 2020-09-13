@@ -1,142 +1,139 @@
 # use-mapbox-gl
 
-> mapbox-gl react hook
+Simple, 0 dependency hook around [mapbox-gl](https://docs.mapbox.com/mapbox-gl-js/api/)
 
-[![NPM](https://img.shields.io/npm/v/use-mapbox-gl.svg)](https://www.npmjs.com/package/use-mapbox-gl) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+[![NPM](https://img.shields.io/npm/v/use-mapbox-gl.svg)](https://www.npmjs.com/package/use-mapbox-gl) 
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
-## Install
+## 🖥 Demo
+Check out the [demo](https://dqunbp.github.io/use-mapbox-gl/)
 
-```bash
-npm install --save use-mapbox-gl mapbox-gl
-```
 
-> You also need to use `mapbox-gl` styles
+## 📦 Installation
+
+  ##### with npm
+
+    $ npm install --save use-mapbox-gl
+
+  ##### with yarn
+
+    $ yarn add use-mapbox-gl
+
+## ⚠️ Don't forget install peer dependencies! If it not alredy installed
+  ##### with npm
+
+    $ npm install --save mapbox-gl
+
+  ##### with yarn
+
+    $ yarn add mapbox-gl
+
+
+## 💅 Import styles. You also need to use `mapbox-gl` styles
+
+
+If you are using `create-react-app` add this link to the `public/index.html` into the `head` tag
 
 ```html
 <link
-  href="https://api.mapbox.com/mapbox-gl-js/v1.5.1/mapbox-gl.css"
+  href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
   rel="stylesheet"
 />
 ```
 
-## Usage
+**OR** You can also import styles from `mapbox-gl` dependencies
 
-### With token
-
-```tsx
-import React from "react";
-import useMapboxGl from "use-mapbox-gl";
-
-const ExampleMap = () => {
-  const mapDivRef = React.useRef();
-  useMapboxGl({
-    mapboxAccessToken: "your_access_token",
-    mapNodeRef: mapDivRef,
-    initialViewport: {
-      latitude: 44.634507629603483,
-      longitude: 48.818963526964204,
-      zoom: 10
-    },
-    style: "mapbox://styles/mapbox/streets-v11",
-    onViewportChanged: v => console.log("viewport changed", v),
-    onLoaded: () => console.log("map loaded")
-  });
-  return (
-    <div
-      style={{
-        position: "absolute",
-        top: 0,
-        bottom: 0,
-        width: "100vw",
-        height: "100vh"
-      }}
-      ref={mapDivRef}
-    />
-  );
-};
+Add this import to your `src/index.js`
+```js
+import "mapbox-gl/dist/index.css"
 ```
 
-### Without token
+
+## 📖 Examples
+
+### 🔗 With token
+
+```jsx
+import React from "react";
+import { useMapboxGl } from "use-mapbox-gl";
+
+function BasicMap() {
+  const containerRef = useRef();
+
+  useMapboxGl(containerRef, {
+    style: "mapbox://styles/mapbox/streets-v11",
+    accessToken: "your_access_token",
+  });
+
+  return <div ref={containerRef} />;
+}
+
+export default BasicMap
+```
+
+### 🔗 Without token
 
 For using without token, you need to define custom base map style, as example:
 
 ```js
-const style = {
+import React from "react";
+import { useMapboxGl } from "use-mapbox-gl";
+
+const osmStyle = {
   version: 8,
   sources: {
     osm: {
       type: "raster",
-      tiles: ["https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"],
-      tileSize: 256
-    }
+      tiles: [
+        "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      ],
+      tileSize: 256,
+    },
   },
   layers: [
     {
       id: "osm",
       source: "osm",
-      type: "raster"
-    }
-  ]
+      type: "raster",
+    },
+  ],
 };
-```
 
-See extended case in the [example](https://github.com/dqunbp/use-mapbox-gl/tree/master/example).
+function WithoutTokenMap() {
+  const containerRef = useRef();
 
-## API
+  useMapboxGl(containerRef, {
+    style: osmStyle,
+    zoom: 9,
+    center: [30, 50],
+  });
 
-Options:
-
-- **mapboxAccessToken** - mapbox-gl access token
-- **mapNodeRef** - mapbox-gl map container ref
-- **initialViewport** - initial map `viewport`
-- **style** - mapbox-gl map [style](https://docs.mapbox.com/mapbox-gl-js/style-spec/)
-- **onViewportChanged** - called when `viewport` updated
-- **onLoaded** - called when map `load` event fired
-- **viewportUpdatingMode** - `mapbox-gl` [event](https://docs.mapbox.com/mapbox-gl-js/api/#events) to viewport updating
-  - accepted values:
-    - `move` - update on each `viewport` change tick
-    - `moveend` - update `viewport` when the map is stopped moving
-
-Returns object with shape:
-
-- **getMap** - returns the map instance
-- **setViewport** - sets the map `viewport`
-  - args
-    - Viewport [mapbox description](https://docs.mapbox.com/mapbox-gl-js/api/#cameraoptions)
-      - `latitude` (optional)
-      - `longitude` (optional)
-      - `zoom` (optional)
-      - `bearing` (optional)
-      - `pitch` (optional)
-    - Options [mapbox description](https://docs.mapbox.com/mapbox-gl-js/api/#animationoptions)
-      - `speed` (optional)
-      - `curve` (optional)
-      - `easing` (optional)
-
-> `setViewport` calls one of mapbox-gl methods, depends on options
-
-| Will called \ Passed options | `speed` | `easing` | `curve` |
-| :--------------------------: | ------- | -------- | ------- |
-|           `flyTo`            | +       | +        | +       |
-|           `easeTo`           | +       | +        | -       |
-|           `jumpTo`           | -       | -        | -       |
-
-Supported `viewport` shape:
-
-```tsx
-{
-  latitude;
-  longitude;
-  zoom;
-  bearing;
-  pitch;
+  return <div ref={containerRef} />;
 }
+
+export default WithoutTokenMap
 ```
+
+## 🕹 API
+
+#### 🔗 useMapboxGl
+
+- **container** - The HTML element in which Mapbox GL JS will render the map
+- **options** *(optional)* - object with native [mapbox-gl](https://docs.mapbox.com/mapbox-gl-js/api/map/#map-parameters) parameters, without container prop
+- **setMapApi** *(optional)* - map load callback, called when [mapbox-gl load event](https://docs.mapbox.com/mapbox-gl-js/api/map/#map.event:load) is fired
+
+```ts
+useMapboxGl(
+  container: React.MutableRefObject<HTMLDivElement> 
+  options?: Omit<MapboxOptions, "container">
+  setMapApi?: (map: mapboxgl.Map) => void 
+)
+```
+
+---
 
 ## License
 
 MIT © [dqunbp](https://github.com/dqunbp)
-
----
-
-This hook is created using [create-react-hook](https://github.com/hermanya/create-react-hook).
