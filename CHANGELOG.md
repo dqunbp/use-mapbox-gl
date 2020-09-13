@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/dqunbp/use-mapbox-gl/compare/v1.4.6...v2.0.0) (2020-09-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* use native mapbox-gl options as hook config
+
+### Features
+
+* move to the native mapbox-gl ([8433e0d](https://github.com/dqunbp/use-mapbox-gl/commit/8433e0df7ef3f362f7d1493243efaa2446e4cf98))
+
+
+### Bug Fixes
+
+* **deps-dev:** bump gh-pages from 2.1.1 to 2.2.0 ([#65](https://github.com/dqunbp/use-mapbox-gl/issues/65)) ([bde49cf](https://github.com/dqunbp/use-mapbox-gl/commit/bde49cf5a4f71a11f90d6dea66c39b96b3ab1fdb))
+
 ### [1.4.6](https://github.com/dqunbp/use-mapbox-gl/compare/v1.4.5...v1.4.6) (2019-12-06)
 
 

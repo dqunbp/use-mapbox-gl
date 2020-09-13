@@ -1,6 +1,6 @@
 {
   "name": "use-mapbox-gl",
-  "version": "1.4.6",
+  "version": "2.0.0",
   "description": "mapbox-gl react hook",
   "author": "dqunbp",
   "license": "MIT",
