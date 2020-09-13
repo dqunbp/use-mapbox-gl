@@ -18,6 +18,7 @@
     "release:minor": "npm run release -- --release-as minor",
     "release:major": "npm run release -- --release-as major"
   },
+  "files":["dist/**/*"],
   "keywords": [
     "react",
     "mapbox",
