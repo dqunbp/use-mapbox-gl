@@ -79,8 +79,12 @@ function WithoutTokenMap() {
     <section className="container example">
       <h2 className="title">Without token</h2>
       <div className="map" ref={containerRef} />
-      <div className="codeblock">
-        <SyntaxHighlighter language="javascript" style={atomOneDark}>
+      <div>
+        <SyntaxHighlighter
+          language="javascript"
+          style={atomOneDark}
+          customStyle={{ borderRadius: "5px", padding: "1.5rem" }}
+        >
           {code}
         </SyntaxHighlighter>
       </div>
