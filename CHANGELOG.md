@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.3](https://github.com/dqunbp/use-mapbox-gl/compare/v2.0.2...v2.0.3) (2020-09-15)
+
+
+### Features
+
+* add github corner ([1952b96](https://github.com/dqunbp/use-mapbox-gl/commit/1952b968ee56a3a232c1ddeb9bea3de0307f05e4))
+* update readme ([4be025e](https://github.com/dqunbp/use-mapbox-gl/commit/4be025e7777e75defda6d340e9af4f3f4c360ed8))
+
 ### [2.0.2](https://github.com/dqunbp/use-mapbox-gl/compare/v2.0.1...v2.0.2) (2020-09-13)
 
 
