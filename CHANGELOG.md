@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/dqunbp/use-mapbox-gl/compare/v2.0.3...v2.1.0) (2020-11-11)
+
+
+### Features
+
+* add clean map callback ([4436a49](https://github.com/dqunbp/use-mapbox-gl/commit/4436a49ea9f3fd1e7f087bd83a311b6ee7651183))
+
 ### [2.0.3](https://github.com/dqunbp/use-mapbox-gl/compare/v2.0.2...v2.0.3) (2020-09-15)
 
 
