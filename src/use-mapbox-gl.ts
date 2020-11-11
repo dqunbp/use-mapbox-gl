@@ -10,9 +10,10 @@ export const defaultMapOptions: MapOptions = {
 };
 
 export function useMapboxGl(
-  cotainerRef: React.MutableRefObject<HTMLDivElement>,
+  cotainerRef: React.MutableRefObject<HTMLElement>,
   options?: MapOptions,
-  setMapAPI?: (map: mapboxgl.Map) => void
+  setMapAPI?: (map: mapboxgl.Map) => void,
+  cleanMapAPI?: () => void
 ) {
   useEffect(() => {
     const container = cotainerRef.current;
@@ -28,6 +29,7 @@ export function useMapboxGl(
 
     return () => {
       mapboxGlMap.remove();
+      if (cleanMapAPI) cleanMapAPI();
     };
   }, []);
 }

@@ -122,13 +122,15 @@ export default WithoutTokenMap
 
 - **container** - The HTML element `React` `ref` in which Mapbox GL JS will render the map
 - **options** *(optional)* - object with native [mapbox-gl](https://docs.mapbox.com/mapbox-gl-js/api/map/#map-parameters) parameters, without container prop
-- **setMapApi** *(optional)* - map load callback, called when [mapbox-gl load event](https://docs.mapbox.com/mapbox-gl-js/api/map/#map.event:load) is fired
+- **setMapApi** *(optional)* - map load callback, called when the [mapbox-gl load event] (https://docs.mapbox.com/mapbox-gl-js/api/map/#map.event:load) occurs
+- **cleanMapApi** *(optional)* - map cleanup callback, called when the map container is unmounted
 
 ```ts
 useMapboxGl(
-  container: React.MutableRefObject<HTMLDivElement> 
+  container: React.MutableRefObject<HTMLElement> 
   options?: Omit<MapboxOptions, "container">
   setMapApi?: (map: mapboxgl.Map) => void 
+  cleanMapAPI?: () => void
 )
 ```
 
