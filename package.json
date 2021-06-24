@@ -33,7 +33,7 @@
   ],
   "peerDependencies": {
     "react": "^16.8.x",
-    "mapbox-gl": ">= ^1.x.x"
+    "mapbox-gl": ">= ^1.x.x || >= ^2.x.x"
   },
   "devDependencies": {
     "@types/mapbox-gl": "^1.11.2",
