@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.2](https://github.com/dqunbp/use-mapbox-gl/compare/v2.2.1...v2.2.2) (2021-12-06)
+
+
+### Bug Fixes
+
+* **deps:** fix security deps warnings ([47dceee](https://github.com/dqunbp/use-mapbox-gl/commit/47dceee3716f1b48b9a263d717e4bb4154705d78))
+* **deps:** update example deps ([c5365c7](https://github.com/dqunbp/use-mapbox-gl/commit/c5365c76534500a42fc3b505363a74d53ea13d2b))
+
 ### [2.2.1](https://github.com/dqunbp/use-mapbox-gl/compare/v2.2.0...v2.2.1) (2021-06-24)
 
 
