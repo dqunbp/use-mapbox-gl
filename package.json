@@ -32,16 +32,16 @@
     "react mapbox hook"
   ],
   "peerDependencies": {
-    "react": "^16.8.x",
+    "react": ">=16.8.0",
     "mapbox-gl": ">= ^1.x.x || >= ^2.x.x"
   },
   "devDependencies": {
     "@types/mapbox-gl": "^1.11.2",
-    "@types/react": "^16.9.49",
+    "@types/react": ">=16.9.49",
     "gh-pages": "^3.1.0",
     "mapbox-gl": "^1.12.0",
     "prettier": "^2.1.1",
-    "react": "^16.13.1",
+    "react": ">=16.13.1 ",
     "rollup": "^2.26.11",
     "rollup-plugin-peer-deps-external": "^2.2.3",
     "rollup-plugin-terser": "^7.0.2",
